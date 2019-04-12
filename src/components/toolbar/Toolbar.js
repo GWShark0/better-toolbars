@@ -5,6 +5,7 @@ import ToolbarBackgroundMenu from './ToolbarBackgroundMenu';
 import ToolbarBorderMenu from './ToolbarBorderMenu';
 import ToolbarItem from './ToolbarItem';
 import ToolbarMarginMenu from './ToolbarMarginMenu';
+import useKeyPress from '../../hooks/useKeyPress';
 
 import './Toolbar.scss';
 
@@ -66,6 +67,9 @@ function Toolbar(props) {
 function ToolbarWrapper(props) {
   const { active, onClose, children } = props;
   const [activeMenu, setActiveMenu] = useState('');
+
+  const escapeKeyPressed = useKeyPress('Escape');
+  escapeKeyPressed && onClose();
 
   useEffect(() => {
     const checkFocus = (event) => {

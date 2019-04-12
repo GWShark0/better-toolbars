@@ -5,7 +5,7 @@
 }
 
 .toolbar-wrapper--active > :not(.toolbar) {
-  pointer-events: none;
+  opacity: 1;
 }
 
 .toolbar {
