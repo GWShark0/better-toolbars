@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ToolbarAlignmentMenu from './ToolbarAlignmentMenu';
 import ToolbarBackgroundMenu from './ToolbarBackgroundMenu';
 import ToolbarBorderMenu from './ToolbarBorderMenu';
 import ToolbarItem from './ToolbarItem';
 import ToolbarMarginMenu from './ToolbarMarginMenu';
-import hasClass from '../../util/hasClass';
 
 import './Toolbar.scss';
 
@@ -68,15 +67,18 @@ function ToolbarWrapper(props) {
   const { active, onClose, children } = props;
   const [activeMenu, setActiveMenu] = useState('');
 
-  window.addEventListener('click', (event) => {
-    const isApp = hasClass(event.target, 'app');
-    const isWrapper = hasClass(event.target, 'toolbar-wrapper');
+  useEffect(() => {
+    const checkFocus = (event) => {
+      const toolbar = document.getElementById('toolbar');
+      if (!toolbar.contains(event.target)) {
+        setActiveMenu('');
+        onClose();
+      }
+    };
 
-    if (isWrapper || isApp) {
-      setActiveMenu('');
-      onClose();
-    }
-  })
+    window.addEventListener('click', checkFocus);
+    return () => window.removeEventListener('click', checkFocus);
+  }, []);
 
   const className = classNames(
     'toolbar-wrapper',
@@ -84,7 +86,7 @@ function ToolbarWrapper(props) {
   );
 
   return (
-    <div className={className}>
+    <div id="toolbar" className={className}>
       {active && (
         <Toolbar
           activeMenu={activeMenu}
