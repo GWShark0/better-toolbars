@@ -16,7 +16,7 @@ function ToolbarMarginMenu() {
     <ToolbarMenu>
       <ToolbarMenuSection title="Margin">
         <ToolbarMenuRow>
-          <Icon name="margin-top" size="sm" />
+          <Icon id="margin-top" size="sm" />
           <Range
             value={top}
             max={50}
@@ -27,7 +27,7 @@ function ToolbarMarginMenu() {
           </Value>
         </ToolbarMenuRow>
         <ToolbarMenuRow>
-          <Icon name="margin-right" size="sm" />
+          <Icon id="margin-right" size="sm" />
           <Range
             value={right}
             max={50}
@@ -38,7 +38,7 @@ function ToolbarMarginMenu() {
           </Value>
         </ToolbarMenuRow>
         <ToolbarMenuRow>
-          <Icon name="margin-bottom" size="sm" />
+          <Icon id="margin-bottom" size="sm" />
           <Range
             value={bottom}
             max={50}
@@ -49,7 +49,7 @@ function ToolbarMarginMenu() {
           </Value>
         </ToolbarMenuRow>
         <ToolbarMenuRow>
-          <Icon name="margin-left" size="sm" />
+          <Icon id="margin-left" size="sm" />
           <Range
             value={left}
             max={50}

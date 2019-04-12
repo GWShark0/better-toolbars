@@ -28,7 +28,7 @@ function ToolbarBackgroundMenu() {
       {backgroundEnabled && <ToolbarBackgroundViewer />}
       <ToolbarMenuSection title="Color">
         <ToolbarMenuRow>
-          <Icon name="circle" />
+          <Icon id="circle" />
           <Range
             value={opacity}
             onChange={event => setOpacity(event.target.valueAsNumber)}
@@ -40,7 +40,7 @@ function ToolbarBackgroundMenu() {
       </ToolbarMenuSection>
       <ToolbarMenuSection title="Corner Radius">
         <ToolbarMenuRow>
-          <Icon name="corner-rounded" />
+          <Icon id="corner-rounded" />
           <Range
             value={radius}
             max={10}
@@ -53,7 +53,7 @@ function ToolbarBackgroundMenu() {
       </ToolbarMenuSection>
       <ToolbarMenuSection title="Distance From Edge">
         <ToolbarMenuRow>
-          <Icon name="padding" />
+          <Icon id="padding" />
           <Range
             value={padding}
             max={50}

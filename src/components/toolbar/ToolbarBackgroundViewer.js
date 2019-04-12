@@ -14,7 +14,7 @@ function ToolbarBackgroundViewer() {
         <button className="toolbar-background-viewer__button">
           <Icon
             className="toolbar-background-viewer__icon"
-            name="image"
+            id="image"
             size="sm"
           />
           {'Change'}
@@ -22,7 +22,7 @@ function ToolbarBackgroundViewer() {
         <button className="toolbar-background-viewer__button">
           <Icon
             className="toolbar-background-viewer__icon"
-            name="crop"
+            id="crop"
             size="sm"
           />
           {'Crop'}

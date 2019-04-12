@@ -17,7 +17,7 @@ function ToolbarAlignmentSelector(props) {
           checked={alignment === 'top'}
           onChange={event => setAlignment(event.target.value)}
         />
-        <Icon className="toolbar-alignment-icon" name="align-top" />
+        <Icon className="toolbar-alignment-icon" id="align-top" />
       </label>
       <label>
         <input
@@ -28,7 +28,7 @@ function ToolbarAlignmentSelector(props) {
           checked={alignment === 'middle'}
           onChange={event => setAlignment(event.target.value)}
         />
-        <Icon className="toolbar-alignment-icon" name="align-middle" />
+        <Icon className="toolbar-alignment-icon" id="align-middle" />
       </label>
       <label>
         <input
@@ -39,7 +39,7 @@ function ToolbarAlignmentSelector(props) {
           checked={alignment === 'bottom'}
           onChange={event => setAlignment(event.target.value)}
         />
-        <Icon className="toolbar-alignment-icon" name="align-bottom" />
+        <Icon className="toolbar-alignment-icon" id="align-bottom" />
       </label>
     </>
   );

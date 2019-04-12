@@ -13,7 +13,7 @@ function ToolbarItem(props) {
 
   return (
     <button className={className} {...rest}>
-      <Icon name={icon} />
+      <Icon id={icon} />
     </button>
   )
 }

@@ -14,7 +14,7 @@ function ToolbarBorderMenu() {
     <ToolbarMenu>
       <ToolbarMenuSection title="Border Thickness">
         <ToolbarMenuRow>
-          <Icon name="expand-vertical" />
+          <Icon id="expand-vertical" />
           <Range
             value={thickness}
             max={50}
@@ -27,7 +27,7 @@ function ToolbarBorderMenu() {
       </ToolbarMenuSection>
       <ToolbarMenuSection title="Border Color">
         <ToolbarMenuRow>
-          <Icon name="circle" />
+          <Icon id="circle" />
           <Range
             value={opacity}
             onChange={event => setOpacity(event.target.valueAsNumber)}

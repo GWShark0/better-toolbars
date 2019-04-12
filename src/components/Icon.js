@@ -4,17 +4,17 @@ import classNames from 'classnames';
 import './Icon.scss';
 
 function Icon(props) {
-  const { name, size, className, ...rest } = props;
+  const { id, size, className, ...rest } = props;
   const classes = classNames(
     'icon',
-    `icon-${name}`,
+    `icon-${id}`,
     size && `icon--${size}`,
     className,
   );
 
   return (
     <svg className={classes} {...rest}>
-      <use xlinkHref={`sprite.svg#${name}`} />
+      <use xlinkHref={`#${id}`} />
     </svg>
   );
 }
