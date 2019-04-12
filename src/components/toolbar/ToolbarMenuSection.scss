@@ -1,0 +1,16 @@
+@import '../variables.scss';
+
+.toolbar-menu-section {
+  padding: 20px;
+
+  &:not(:first-child) {
+    border-top: 1px solid $grey-3;
+  }
+}
+
+.toolbar-menu-section__title {
+  margin: 0 0 16px;
+  font-size: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+}

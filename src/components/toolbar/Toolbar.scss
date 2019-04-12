@@ -1,0 +1,19 @@
+@import '../variables.scss';
+
+.toolbar-wrapper {
+  position: relative;
+}
+
+.toolbar-wrapper--active > :not(.toolbar) {
+  pointer-events: none;
+}
+
+.toolbar {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  display: flex;
+  font-size: 14px;
+  color: $white;
+  transform: translateX(-50%);
+}

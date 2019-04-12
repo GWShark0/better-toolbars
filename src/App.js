@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Image from './components/Image';
+import Toolbar from './components/toolbar/Toolbar';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import './App.scss';
+
+function App() {
+  const [toolbarActive, setToolbarActive] = useState(false);
+  const openToolbar = () => setToolbarActive(true);
+  const closeToolbar = () => setToolbarActive(false);
+
+  return (
+    <div className="app">
+      <Toolbar
+        active={toolbarActive}
+        onClose={closeToolbar}
+      >
+        <Image onClick={openToolbar} />
+      </Toolbar>
+    </div>
+  );
 }
 
 export default App;
