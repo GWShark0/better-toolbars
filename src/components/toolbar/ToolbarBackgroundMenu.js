@@ -35,7 +35,7 @@ function ToolbarBackgroundMenu() {
           />
           <Num
             value={opacity}
-            onChange={event => setOpacity(conformNumber(event.target.valueAsNumber))}
+            onChange={event => setOpacity(conformNumber(event.target.valueAsNumber, 100))}
           />
         </ToolbarMenuRow>
       </ToolbarMenuSection>

@@ -51,7 +51,7 @@ function ToolbarMarginMenu() {
           <Num
             max={50}
             value={bottom}
-            onChange={event => setBottom(conformNumber(event.target.valueAsNumber, 0, 50))}
+            onChange={event => setBottom(conformNumber(event.target.valueAsNumber, 50))}
           />
         </ToolbarMenuRow>
         <ToolbarMenuRow>
