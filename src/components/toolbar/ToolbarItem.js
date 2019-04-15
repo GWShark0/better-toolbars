@@ -1,20 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon';
 
 import './ToolbarItem.scss';
 
 function ToolbarItem(props) {
-  const { active, icon, ...rest } = props;
-  const className = classNames(
+  const { active, className, icon, inline, ...rest } = props;
+  const classes = classNames(
     'toolbar-item',
-    active && 'toolbar-item--active'
+    inline && 'toolbar-item--inline',
+    active && 'toolbar-item--active',
+    className,
   );
 
   return (
-    <button className={className} {...rest}>
-      <Icon id={icon} />
-    </button>
+    <button className={classes} {...rest} />
   )
 }
 

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import ToolbarAlignmentMenu from './ToolbarAlignmentMenu';
+import ToolbarAlignmentToggle from './ToolbarAlignmentToggle';
 import ToolbarBackgroundMenu from './ToolbarBackgroundMenu';
 import ToolbarBorderMenu from './ToolbarBorderMenu';
 import ToolbarItem from './ToolbarItem';
 import ToolbarMarginMenu from './ToolbarMarginMenu';
+import Icon from '../Icon';
 import useKeyPress from '../../hooks/useKeyPress';
 
 import './Toolbar.scss';
@@ -17,37 +18,39 @@ function Toolbar(props) {
   return (
     <div className="toolbar">
       <ToolbarItem
-        icon="image"
         active={activeMenu === 'background'}
         onClick={() => toggleMenu('background')}
-      />
+      >
+        <Icon id="image" />
+      </ToolbarItem>
       <ToolbarItem
-        icon="margin"
         active={activeMenu === 'margin'}
         onClick={() => toggleMenu('margin')}
-      />
+      >
+        <Icon id="margin" />
+      </ToolbarItem>
       <ToolbarItem
-        icon="border"
         active={activeMenu === 'border'}
         onClick={() => toggleMenu('border')}
-      />
+      >
+        <Icon id="border" />
+      </ToolbarItem>
       <ToolbarItem
-        icon="align-middle"
+        inline
         active={activeMenu === 'alignment'}
-        onClick={() => toggleMenu('alignment')}
-      />
-      <ToolbarItem
-        icon="move"
-        onClick={onClose}
-      />
-      <ToolbarItem
-        icon="duplicate"
-        onClick={onClose}
-      />
-      <ToolbarItem
-        icon="trash"
-        onClick={onClose}
-      />
+        onClick={() => setActiveMenu('alignment')}
+      >
+        <ToolbarAlignmentToggle />
+      </ToolbarItem>
+      <ToolbarItem onClick={onClose}>
+        <Icon id="move" />
+      </ToolbarItem>
+      <ToolbarItem onClick={onClose}>
+        <Icon id="duplicate" />
+      </ToolbarItem>
+      <ToolbarItem onClick={onClose}>
+        <Icon id="trash" />
+      </ToolbarItem>
       {activeMenu === 'background' && (
         <ToolbarBackgroundMenu />
       )}
@@ -56,9 +59,6 @@ function Toolbar(props) {
       )}
       {activeMenu === 'border' && (
         <ToolbarBorderMenu />
-      )}
-      {activeMenu === 'alignment' && (
-        <ToolbarAlignmentMenu />
       )}
     </div>
   );

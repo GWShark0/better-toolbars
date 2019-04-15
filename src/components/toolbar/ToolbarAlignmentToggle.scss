@@ -1,0 +1,33 @@
+.toolbar-alignment-toggle {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    transform: translateX(-15px);
+  }
+}
+
+.toolbar-alignment-toggle path {
+  fill: currentColor;
+  transition: all 150ms ease-in-out;
+}
+
+.toolbar-alignment-toggle.top path#align-bar {
+  transform: translateY(0);
+}
+
+.toolbar-alignment-toggle.middle path#align-bar {
+  transform: translateY(6px);
+}
+
+.toolbar-alignment-toggle.bottom path#align-bar {
+  transform: translateY(12px);
+}
