@@ -1,11 +1,18 @@
-.value {
+.number {
   display: inline-block;
   padding: 5px 6px;
-  min-width: 38px;
+  width: 45px;
   font-size: 14px;
   border: none;
   border-radius: 2px;
   background-color: #66676d;
   color: inherit;
   appearance: none;
+  outline: none;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
 }

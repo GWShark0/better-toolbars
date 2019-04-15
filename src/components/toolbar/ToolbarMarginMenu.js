@@ -3,7 +3,7 @@ import ToolbarMenu from './ToolbarMenu';
 import ToolbarMenuSection from './ToolbarMenuSection';
 import ToolbarMenuRow from './ToolbarMenuRow';
 import Range from '../Range';
-import Value from '../Value';
+import Num, { conformNumber } from '../Num';
 import Icon from '../Icon';
 
 function ToolbarMarginMenu() {
@@ -18,46 +18,54 @@ function ToolbarMarginMenu() {
         <ToolbarMenuRow>
           <Icon id="margin-top" size="sm" />
           <Range
-            value={top}
             max={50}
+            value={top}
             onChange={event => setTop(event.target.valueAsNumber)}
           />
-          <Value>
-            {top}
-          </Value>
+          <Num
+            max={50}
+            value={top}
+            onChange={event => setTop(conformNumber(event.target.valueAsNumber, 50))}
+          />
         </ToolbarMenuRow>
         <ToolbarMenuRow>
           <Icon id="margin-right" size="sm" />
           <Range
-            value={right}
             max={50}
+            value={right}
             onChange={event => setRight(event.target.valueAsNumber)}
           />
-          <Value>
-            {right}
-          </Value>
+          <Num
+            max={50}
+            value={right}
+            onChange={event => setRight(conformNumber(event.target.valueAsNumber, 50))}
+          />
         </ToolbarMenuRow>
         <ToolbarMenuRow>
           <Icon id="margin-bottom" size="sm" />
           <Range
-            value={bottom}
             max={50}
+            value={bottom}
             onChange={event => setBottom(event.target.valueAsNumber)}
           />
-          <Value>
-            {bottom}
-          </Value>
+          <Num
+            max={50}
+            value={bottom}
+            onChange={event => setBottom(conformNumber(event.target.valueAsNumber, 0, 50))}
+          />
         </ToolbarMenuRow>
         <ToolbarMenuRow>
           <Icon id="margin-left" size="sm" />
           <Range
-            value={left}
             max={50}
+            value={left}
             onChange={event => setLeft(event.target.valueAsNumber)}
           />
-          <Value>
-            {left}
-          </Value>
+          <Num
+            max={50}
+            value={left}
+            onChange={event => setLeft(conformNumber(event.target.valueAsNumber, 50))}
+          />
         </ToolbarMenuRow>
       </ToolbarMenuSection>
     </ToolbarMenu>

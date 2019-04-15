@@ -3,7 +3,7 @@ import ToolbarMenu from './ToolbarMenu';
 import ToolbarMenuSection from './ToolbarMenuSection';
 import ToolbarMenuRow from './ToolbarMenuRow';
 import Range from '../Range';
-import Value from '../Value';
+import Num, { conformNumber } from '../Num';
 import Icon from '../Icon';
 
 function ToolbarBorderMenu() {
@@ -16,13 +16,15 @@ function ToolbarBorderMenu() {
         <ToolbarMenuRow>
           <Icon id="expand-vertical" />
           <Range
-            value={thickness}
             max={50}
+            value={thickness}
             onChange={event => setThickness(event.target.valueAsNumber)}
           />
-          <Value>
-            {thickness}
-          </Value>
+          <Num
+            max={50}
+            value={thickness}
+            onChange={event => setThickness(conformNumber(event.target.valueAsNumber, 50))}
+          />
         </ToolbarMenuRow>
       </ToolbarMenuSection>
       <ToolbarMenuSection title="Border Color">
@@ -32,9 +34,10 @@ function ToolbarBorderMenu() {
             value={opacity}
             onChange={event => setOpacity(event.target.valueAsNumber)}
           />
-          <Value>
-            {opacity}
-          </Value>
+          <Num
+            value={opacity}
+            onChange={event => setOpacity(conformNumber(event.target.valueAsNumber))}
+          />
         </ToolbarMenuRow>
       </ToolbarMenuSection>
     </ToolbarMenu>

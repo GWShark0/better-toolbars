@@ -6,7 +6,7 @@ import ToolbarBackgroundViewer from './ToolbarBackgroundViewer';
 import ToolbarMenu from './ToolbarMenu';
 import ToolbarMenuSection from './ToolbarMenuSection';
 import ToolbarMenuRow from './ToolbarMenuRow';
-import Value from '../Value';
+import Num, { conformNumber } from '../Num';
 
 function ToolbarBackgroundMenu() {
   const [backgroundEnabled, setBackgroundEnabled] = useState(false);
@@ -33,35 +33,40 @@ function ToolbarBackgroundMenu() {
             value={opacity}
             onChange={event => setOpacity(event.target.valueAsNumber)}
           />
-          <Value>
-            {opacity}
-          </Value>
+          <Num
+            value={opacity}
+            onChange={event => setOpacity(conformNumber(event.target.valueAsNumber))}
+          />
         </ToolbarMenuRow>
       </ToolbarMenuSection>
       <ToolbarMenuSection title="Corner Radius">
         <ToolbarMenuRow>
           <Icon id="corner-rounded" />
           <Range
-            value={radius}
             max={10}
+            value={radius}
             onChange={event => setRadius(event.target.valueAsNumber)}
           />
-          <Value>
-            {radius}
-          </Value>
+          <Num
+            max={10}
+            value={radius}
+            onChange={event => setRadius(conformNumber(event.target.valueAsNumber, 10))}
+          />
         </ToolbarMenuRow>
       </ToolbarMenuSection>
       <ToolbarMenuSection title="Distance From Edge">
         <ToolbarMenuRow>
           <Icon id="padding" />
           <Range
-            value={padding}
             max={50}
+            value={padding}
             onChange={event => setPadding(event.target.valueAsNumber)}
           />
-          <Value>
-            {padding}
-          </Value>
+          <Num
+            max={50}
+            value={padding}
+            onChange={event => setPadding(conformNumber(event.target.valueAsNumber, 50))}
+          />
         </ToolbarMenuRow>
       </ToolbarMenuSection>
     </ToolbarMenu>
